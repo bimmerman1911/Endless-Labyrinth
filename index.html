@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101311"><meta name="description" content="Explore an endless stone labyrinth. Search wooden drawers, find the key, and escape before your lantern fades. A free browser game for desktop and mobile.">
+<title>Endless Labyrinth — Find your way out</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23131612'/%3E%3Cpath d='M8 30V10h24v20H18V18h6v7' fill='none' stroke='%23d6ad62' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css"><script src="game.js" defer></script>
+</head>
+<body>
+<div class="site-shell">
+<header class="site-header"><a class="brand" href="./" aria-label="Endless Labyrinth home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 33V7h26v26H17V17h8v9"/></svg><span>ENDLESS<span class="brand-second">LABYRINTH</span></span></a><div class="header-right"><span class="edition">A LITTLE LOST. A LITTLE BRAVE.</span><button class="text-button" id="guideButton"><span aria-hidden="true">ⓘ</span> How to play</button><button id="soundButton" class="icon-button" aria-label="Enable sound" aria-pressed="false">♪<span class="sound-slash"></span></button></div></header>
+<main>
+<div class="intro"><div><p class="eyebrow"><span></span> A LITTLE ADVENTURE IN THE UNKNOWN</p><h1>Every drawer holds a possibility.</h1><p class="subtitle">Find the key. Follow your curiosity. Find your way out.</p></div><span class="floor-label">THE LABYRINTH AWAITS <span>↘</span></span></div>
+<div class="game-layout">
+<section class="game-panel" aria-label="Labyrinth game">
+<div class="game-toolbar"><div class="live-indicator"><i></i><span id="statusLabel">READY TO EXPLORE</span></div><div class="toolbar-actions"><button id="pauseButton" class="small-button" aria-label="Pause game" disabled>Ⅱ <span>Pause</span></button><button id="restartButton" class="small-button" aria-label="Restart game">↻ <span>Restart</span></button></div></div>
+<div class="canvas-wrap" id="canvasWrap"><canvas id="gameCanvas" width="1000" height="760" tabindex="0" aria-label="Labyrinth. Move with arrow keys or WASD. Press E or Space to search adjacent wooden drawers."></canvas><div class="map-tag">N<span>↑</span></div><div class="overlay" id="overlay"><div class="overlay-content" id="overlayContent"></div></div><div id="toast" class="toast" role="status" aria-live="polite"></div></div>
+<div class="game-bottom"><span><i class="player-dot"></i> YOU <i class="wood-dot"></i> WOODEN DRAWER <i class="exit-dot"></i> EXIT</span><span class="generated-label">A NEW MAZE. EVERY TIME.</span></div>
+</section>
+<aside class="sidebar"><section class="journey-card"><div class="section-label">YOUR JOURNEY <span>✦</span></div><div class="score-block"><span>SCORE</span><strong id="score">0000</strong><div>Personal best <b id="best">0</b></div></div><div class="stat-row"><span><small>CURRENT FLOOR</small><b><span class="muted">0</span><span id="floor">1</span></b></span><span><small>LANTERN TIME</small><b id="timer">03:00</b></span></div><div class="time-track"><span id="timeBar"></span></div><div class="inventory"><div id="keyIcon" class="key-slot">⚿</div><div><span>YOUR KEY</span><b id="keyStatus">Not found yet</b></div><span id="keyCheck">—</span></div></section>
+<section class="objective-card"><span class="section-label">THE WAY OUT</span><h2>A key is waiting.<br>Somewhere.</h2><p>Hidden in one of the old wooden drawers is your way to the next floor.</p><ol id="objectives"><li id="objectiveExplore"><span>01</span> Explore the labyrinth</li><li id="objectiveKey"><span>02</span> Search drawers for a key</li><li id="objectiveExit"><span>03</span> Unlock the green exit</li></ol></section>
+<section class="controls-card"><div class="section-label">A FEW HELPING HANDS</div><div><span class="keys"><kbd>W</kbd><span><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></span><p>Move around<span>or use the arrow keys</span></p></div><div><kbd class="key-e">E</kbd><p>Search a drawer<span>or press space</span></p></div><p class="touch-hint">On mobile? Use the controls below.</p></section></aside>
+</div>
+<div class="touch-controls" aria-label="Touch game controls"><div class="dpad"><button data-dir="up" aria-label="Move up">↑</button><button data-dir="left" aria-label="Move left">←</button><button data-dir="down" aria-label="Move down">↓</button><button data-dir="right" aria-label="Move right">→</button></div><button id="searchButton" class="search-button">Search <span>E</span></button></div>
+<div class="under-game"><p><span>✧</span> Not all who wander are lost. But you probably are.</p><span>EXPLORE · SEARCH · ESCAPE · REPEAT</span></div>
+</main><footer><span>ENDLESS LABYRINTH <i> / </i> A small game for curious minds.</span><span>Made to get lost in. <span class="footer-star">✦</span></span></footer>
+</div>
+<dialog id="guide"><button id="closeGuide" class="dialog-close" aria-label="Close instructions">×</button><p class="eyebrow">YOUR FIELD GUIDE</p><h2>A little curiosity goes a long way.</h2><p>Move through the maze with <b>WASD or arrow keys</b>. On mobile, use the directional buttons.</p><p>Stand on or next to a wooden drawer and press <b>E, Space, or Search</b>. You can also tap a nearby drawer. One holds the key!</p><p>Once you find the key, reach the <b>green exit</b> before your three-minute lantern runs out. Each floor brings a new maze and a fresh lantern.</p><div class="guide-points"><span>Drawer <b>+25</b></span><span>Key <b>+100</b></span><span>Escape <b>+250</b></span></div><p class="guide-note">Escape also earns a time bonus. Press P or Escape to pause. Your personal best is saved on this device when storage is available.</p><button id="gotIt" class="primary-button">Got it. Let’s explore <span>→</span></button></dialog>
+</body></html>
